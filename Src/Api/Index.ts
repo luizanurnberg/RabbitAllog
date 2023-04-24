@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { ERequestStatus } from './Enums/Enum';
 import { errorFromSystem } from './Messages/Exceptions/EAPI/ErrorFromSystem';
-import { emptyField } from './Messages/Exceptions/EUS/emptyField';
+import { emptyField } from './Messages/Exceptions/EUS/EmptyField';
 import { letterSent } from './Messages/Success/LetterSent';
 import { Producer } from '../Services/LetterProducer';
 
@@ -18,7 +18,7 @@ export class Api {
                 return response.status(ERequestStatus.SUCCESS).json(letterSent());
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return response.status(ERequestStatus.BAD_REQUEST).json(errorFromSystem());
         }
     }

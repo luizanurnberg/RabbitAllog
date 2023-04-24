@@ -9,7 +9,7 @@ export class Consumer {
             dotenv.config();
             const url: string | undefined = process.env.RABBIT_URL;
             const queue: string | undefined = process.env.QUEUE_NAME;
-            amqp.connect(`${url}`, function (err: any, connection: Connection) {
+            amqp.connect(`${url}`, function (err: Error, connection: Connection) {
                 if (!connection) {
                     throw (connectionNotAvailable());
                 }
