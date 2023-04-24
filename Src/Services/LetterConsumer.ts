@@ -1,4 +1,5 @@
-import amqp from 'amqplib/callback_api';
+import amqp, { Connection } from 'amqplib/callback_api';
+import { Channel } from 'amqplib';
 import * as dotenv from 'dotenv';
 import { connectionNotAvailable } from '../Api/Messages/Exceptions/EAPI/ConnectionNotAvailable';
 
@@ -8,16 +9,15 @@ export class Consumer {
             dotenv.config();
             const url: string | undefined = process.env.RABBIT_URL;
             const queue: string | undefined = process.env.QUEUE_NAME;
-            amqp.connect(`${url}`, function (err: any, connection: any) {
+            amqp.connect(`${url}`, function (err: any, connection: Connection) {
                 if (!connection) {
                     throw (connectionNotAvailable());
                 }
-                let channel: any = null;
                 connection.createChannel(function (err: any, ch: any) {
-                    channel = ch;
-                    channel.consume(queue, (letter: any) => {
+                    const channel: Channel = ch;
+                    channel.consume(`${queue}`, (letter: any) => {
                         if (letter) {
-                            const mensagem: any = letter.content.toString();
+                            const mensagem: string = letter.content.toString();
                             console.log('Carta recebida:', mensagem);
                             channel.ack(letter);
                         }
@@ -28,7 +28,7 @@ export class Consumer {
 
             });
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     }
 }
