@@ -9,8 +9,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(router);
 
-app.listen(port, async () => {
-    console.log(appConnected());
-    const consumerRabbit: Consumer = new Consumer();
-    await consumerRabbit.printLetter();
-})
+const startServer = async () => {
+    try {
+        app.listen(port, () => {
+            console.log(appConnected());
+        });
+        const consumerRabbit: Consumer = new Consumer();
+        await consumerRabbit.printLetter();
+    } catch (error) {
+        console.error("Erro ao iniciar o servidor:", error);
+    }
+};
+
+startServer();
