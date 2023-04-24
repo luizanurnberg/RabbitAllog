@@ -8,8 +8,8 @@ import { Producer } from '../Services/LetterProducer';
 export class Api {
     async manageRabbitService(request: Request, response: Response): Promise<Response<any, Record<string, any>> | undefined> {
         try {
-            const { from, to } = request.body;
-            if (!from || !to) {
+            const { FROM, TO } = request.body;
+            if (!FROM || !TO) {
                 return response.status(ERequestStatus.BAD_REQUEST).json(emptyField());
             }
             const producerRabbit: Producer = new Producer();

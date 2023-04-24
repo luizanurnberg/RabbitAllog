@@ -17,8 +17,8 @@ export class Consumer {
                     const channel: Channel = ch;
                     channel.consume(`${queue}`, (letter: any) => {
                         if (letter) {
-                            const mensagem: string = letter.content.toString();
-                            console.log('Carta recebida:', mensagem);
+                            const message: string = letter.content.toString();
+                            console.log('Carta recebida:', message);
                             channel.ack(letter);
                         }
                     },

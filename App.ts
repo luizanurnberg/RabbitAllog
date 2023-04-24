@@ -2,6 +2,7 @@ import express from "express";
 import { router } from "./Src/Api/Routes/router";
 import { appConnected } from "./Src/Api/Messages/Success/ConnectedToApp";
 import { Consumer } from "./Src/Services/LetterConsumer";
+import { serverConnectionFalied } from "./Src/Api/Messages/Exceptions/EAPI/ServerConnectionFalied";
 
 const port = 3000;
 const app = express();
@@ -17,7 +18,7 @@ const startServer = async () => {
         const consumerRabbit: Consumer = new Consumer();
         await consumerRabbit.printLetter();
     } catch (error) {
-        console.error("Erro ao iniciar o servidor:", error);
+        console.error(serverConnectionFalied(), error);
     }
 };
 
