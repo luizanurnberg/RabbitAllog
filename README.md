@@ -25,7 +25,7 @@ Projeto para envio e leitura de cartas eletrônicas | TypeScript
 <b>Api:</b> <br>
 1. Enumns: utilizado principalmente no status das respostas das requisições;  <br>
 2. Messages: armazena todas as mensagens disponíveis no sistema; <br>
-3. RabbitConnection: faz a conexão entre a API e o serviço 'Producer', a fim de enviar as cartas eletrônicas; <br>
+3. Index: faz a conexão entre a API e o serviço 'Producer', a fim de enviar as cartas eletrônicas; <br>
 4. Routes: contém a rota POST disponível. <br>
 
 <b>Services:</b> <br>
@@ -43,13 +43,12 @@ Pré-condições:
 Fluxo básico:
 1. O usuário acessa o Insomnia ou Postman para testes; 
 2. O usuário acessa a rota definida para o envio;
-3. O usuário digita o remetente e o destinatário;
+3. O usuário digita o remetente, destinatário e a mensagem;
 4. O usuário clica em send;
 5. O sistema retorna a mensagem SUC003;
 6. O sistema envia a carta eletrônica para uma fila do rabbit.
 
-Fluxo de exceção: 
-		
+Fluxo de exceção: 		
 (E1) Exceção ao passo 3 - Campos vazios;
 1. O usuário não digita todos os campos necessários para o envio;
 2. O sistema retorna a mensagem EXC003.
