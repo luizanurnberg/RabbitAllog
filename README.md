@@ -4,13 +4,7 @@ Projeto do estágio para envio e leitura de cartas eletrônicas | TypeScript
 
 # Descrição fornecida pelo surpevisor
 
-Desenvolver um projeto em NodeJS para envio e leitura de cartas eletrônicas. O projeto deve conter uma rota para enviar as cartas eletrônicas para uma fila do Rabbit, e também um SERVIÇO que lê a fila do Rabbit e imprime as cartas enviadas no terminal. Utilizar o Rabbit da Allog (rabbitmq-allog no docker) para fazer a interação entre a parte da API e do SERVIÇO.
-● Detalhes da API:
-○ A rota deve receber como parâmetro um objeto, exemplo:
-■ { FROM: “joão@email.com”, TO: “maria@email.com, MESSAGE: “Olá Maria” }
-○ Enviar as informações recebidas por rota para uma nova fila no Rabbit. ● Detalhes da SERVIÇO:
-○ Desenvolver um consumidor para essa nova fila do Rabbit
-○ Consumir itens da fila do Rabbit e imprimir no console onde está rodando o
+Desenvolver um projeto em NodeJS para envio e leitura de cartas eletrônicas. O projeto deve conter uma rota para enviar as cartas eletrônicas para uma fila do Rabbit, e também um SERVIÇO que lê a fila do Rabbit e imprime as cartas enviadas no terminal. Utilizar o Rabbit da Allog (rabbitmq-allog no docker) para fazer a interação entre a parte da API e do SERVIÇO. Detalhes da API: A rota deve receber como parâmetro um objeto, exemplo:'{ FROM: “joão”, TO: “maria", MESSAGE: “Olá Maria” }' e enviar as informações recebidas por rota para uma nova fila no Rabbit. Detalhes do SERVIÇO: Desenvolver um consumidor para essa nova fila do Rabbit e consumir itens da fila do Rabbit e imprimir no console onde está rodando o
 terminal do Projeto.
 
 # Requisitos levantados
@@ -53,7 +47,7 @@ terminal do Projeto.
    - Consumer: deve consumir e imprimir as cartas eletrônicas no terminal em que está sendo executado. <br>
 
 <b>App:</b> <br>
-Inicializa o servidor para consumir as cartas eletrônicas.
+   - Inicializa o servidor para consumir as cartas eletrônicas.
 
 # Detalhamento do sistema
 
