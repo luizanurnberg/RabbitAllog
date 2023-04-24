@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import { ERequestStatus } from './Enums/Enum';
 import { errorFromSystem } from './Messages/Exceptions/EAPI/ErrorFromSystem';
-import { emptyField } from './Messages/Exceptions/EUS/EmptyField';
 import { letterSent } from './Messages/Success/LetterSent';
 import { Producer } from '../Services/LetterProducer';
+import { emptyField } from './Messages/Exceptions/EUS/emptyField';
 
 export class Api {
     async manageRabbitService(request: Request, response: Response): Promise<Response<any, Record<string, any>> | undefined> {

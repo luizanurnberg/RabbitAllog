@@ -2,6 +2,7 @@ import amqp, { Connection } from 'amqplib/callback_api';
 import { Channel } from 'amqplib';
 import * as dotenv from 'dotenv';
 import { connectionNotAvailable } from '../Api/Messages/Exceptions/EAPI/ConnectionNotAvailable';
+import { rabbitConnected } from '../Api/Messages/Success/ConnectedToRabbit';
 
 export class Consumer {
     async printLetter(): Promise<void> {
@@ -13,7 +14,8 @@ export class Consumer {
                 if (!connection) {
                     throw (connectionNotAvailable());
                 }
-                connection.createChannel(function (err: any, ch: any) {
+                console.log(rabbitConnected());
+                connection.createChannel(function (err: Error, ch: any) {
                     const channel: Channel = ch;
                     channel.consume(`${queue}`, (letter: any) => {
                         if (letter) {
