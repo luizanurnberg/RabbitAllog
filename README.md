@@ -104,17 +104,17 @@ Fluxo básico:
 2. Possuir o Insomnia ou PostMan instalado;
 3. Para rodar o programa utilizar os comandos abaixo e depois esperar as mensagens SUC001 e SUC002;
 
-   npm install
+            npm install
 
-   docker pull rabbitmq:3-management
+            docker pull rabbitmq:3-management
 
-   docker run --rm -it -p 15672:15672 -p 5672:5672 rabbitmq:3-management
+            docker run --rm -it -p 15672:15672 -p 5672:5672 rabbitmq:3-management
 
 4. Adicionar um arquivo .env se necessário, com as informações abaixo.
 
-   RABBIT_URL = 'amqp://localhost'
+            RABBIT_URL = 'amqp://localhost'
 
-   QUEUE_NAME = 'letters'
+            QUEUE_NAME = 'letters'
 
 # Mensagens esperadas
 
