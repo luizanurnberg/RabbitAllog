@@ -60,7 +60,6 @@ Pré-condições:
 2. Possuir internet.
 
 Fluxo básico:
-
 1. O usuário acessa o Insomnia ou Postman para testes;
 2. O usuário acessa a rota definida para o envio;
 3. O usuário digita o remetente, destinatário e a mensagem;
@@ -70,19 +69,16 @@ Fluxo básico:
 
 Fluxo de exceção:
 (E1) Exceção ao passo 3 - Campos vazios;
-
 1. O usuário não digita todos os campos necessários para o envio;
 2. O sistema retorna a mensagem EXC004.
 
 Fluxo de exceção:
 (E2) Exceção ao passo 3 - Mensagem inválida
-
 1. O usuário não digita uma mensagem para ser enviada ao destinatário;
 2. O sistema retorna a mensagem EXC006.
 
 Fluxo de exceção:
-(E2) Exceção ao passo 2 - Rota inválida;
-
+(E3) Exceção ao passo 2 - Rota inválida;
 1. O usuário não acessa uma rota válida para o envio da mensagem;
 2. O sistema retorna a mensagem EXC005.
 
@@ -97,7 +93,6 @@ Pré-condições:
 3. Ter enviado ao menos uma carta eletrônica.
 
 Fluxo básico:
-
 1. O usuário aguarda a mensagem aparecer no terminal do projeto, após ser processada pelo rabbit.
 
 # Configuração de ambiente
