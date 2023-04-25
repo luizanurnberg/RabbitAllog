@@ -46,6 +46,7 @@ terminal do Projeto.
    - Consumer: deve consumir e imprimir as cartas eletrônicas no terminal em que está sendo executado. <br>
 2. LetterService
    - Faz a ligação entre o Producer e a Api
+   
 <b>App:</b> <br>
    - Inicializa o servidor para consumir as cartas eletrônicas.
 
