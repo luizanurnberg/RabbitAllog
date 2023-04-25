@@ -1,10 +1,10 @@
-import { serverConnectionFalied } from "./srcc/api/messages/exceptions/EAPI/ServerConnectionFalied";
-import { LetterConsumer } from "./srcc/services/messageBroker/LetterConsumer";
-import { invalidRoute } from "./srcc/api/messages/exceptions/EUS/InvalidRoute";
-import { appConnected } from "./srcc/api/messages/success/ConnectedToApp";
-import { ERequestStatus } from "./srcc/api/enums/Enum";
+import { serverConnectionFalied } from "./src/api/messages/exceptions/EAPI/ServerConnectionFalied";
+import { LetterConsumer } from "./src/services/messageBroker/LetterConsumer";
+import { invalidRoute } from "./src/api/messages/exceptions/EUS/InvalidRoute";
+import { appConnected } from "./src/api/messages/success/ConnectedToApp";
+import { ERequestStatus } from "./src/api/enums/Enum";
 import express, { Request, Response } from "express";
-import { router } from "./srcc/api/routes/router";
+import { router } from "./src/api/routes/router";
 
 const port = 3000;
 const app = express();
@@ -17,7 +17,7 @@ app.use(function (request: Request, response: Response) {
     );
 })
 
-const startServer = async () => {
+const startServer: () => Promise<void> = async () => {
     try {
         app.listen(port, () => {
             console.log(appConnected());

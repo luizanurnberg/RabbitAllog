@@ -1,6 +1,6 @@
 import { errorFromSystem } from './messages/exceptions/EAPI/ErrorFromSystem';
 import { emptyMessage } from './messages/exceptions/EUS/EmptyMessage';
-import { emptyField } from './messages/exceptions/EUS/EmptyField';
+import { emptyField } from './messages/exceptions/EUS/emptyField';
 import { letterSent } from './messages/success/LetterSent';
 import { LetterService } from '../services/LetterService';
 import { Request, Response } from 'express';
