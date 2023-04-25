@@ -110,7 +110,9 @@ Fluxo básico:
 
             docker pull rabbitmq:3-management
 
-            docker run --rm -it -p 15672:15672 -p 5672:5672 rabbitmq:3-management -- A partir desse comando é criada uma conexão do tipo guest:guest
+            docker run --rm -it -p 15672:15672 -p 5672:5672 rabbitmq:3-management 
+            
+            (A partir desse comando é criada uma conexão do tipo guest:guest)
 
 4. Adicionar um arquivo .env se necessário, com as informações abaixo.
 
