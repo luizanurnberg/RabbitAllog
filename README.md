@@ -36,7 +36,7 @@ terminal do Projeto.
 
 1. Enumns: utilizado principalmente no status das respostas das requisições; <br>
 2. Messages: armazena todas as mensagens disponíveis no sistema; <br>
-3. Index: faz a conexão entre a API e o serviço 'Producer', a fim de enviar as cartas eletrônicas; <br>
+3. Index: faz a conexão entre Api e Serviço, a fim de enviar as cartas eletrônicas; <br>
 4. Routes: contém a rota POST disponível. <br>
 
 <b>Services:</b> <br>
@@ -44,7 +44,8 @@ terminal do Projeto.
 1. MessageBroker
    - Producer: responsável por publicar os itens na fila de forma sequencial de acordo com a ordem que foram recebidos; <br>
    - Consumer: deve consumir e imprimir as cartas eletrônicas no terminal em que está sendo executado. <br>
-
+2. LetterService
+   - Faz a ligação entre o Producer e a Api
 <b>App:</b> <br>
    - Inicializa o servidor para consumir as cartas eletrônicas.
 
