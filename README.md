@@ -26,10 +26,9 @@ terminal do Projeto.
 
 <b>Regras de Negócio:</b> <br>
 
-1. O cadastro não poderá ser enviada caso o remetente ou destinatário estejam nulos; <br>
+1. O cadastro não poderá ser enviada caso o remetente, destinatário ou mensagem estejam nulos; <br>
 2. O usuário não poderá acessar uma rota inválida; <br>
 3. A API deve retornar uma resposta adequada indicando o sucesso ou falha do envio da carta eletrônica; <br>
-4. O usuário poderá enviar uma carta eletrônica com a mensagem vazia, caso desejar. <br>
 
 # Modelo de implementação
 
@@ -72,6 +71,12 @@ Fluxo de exceção:
 
 1. O usuário não digita todos os campos necessários para o envio;
 2. O sistema retorna a mensagem EXC004.
+
+Fluxo de exceção:
+(E2) Exceção ao passo 3 - Mensagem inválida
+
+1. O usuário não digita uma mensagem para ser enviada ao destinatário;
+2. O sistema retorna a mensagem EXC006.
 
 Fluxo de exceção:
 (E2) Exceção ao passo 2 - Rota inválida;
@@ -160,6 +165,15 @@ return {
 EUS.invalidRoute();
 return {
   msg: "Você está tentando acessar uma rota inválida!",
+};
+```
+
+(EXC006)
+
+```js
+EUS.emptyMessage();
+return {
+  msg: "Você está tentando enviar uma mensagem em branco, preencha o campo e tente novamente!",
 };
 ```
 
