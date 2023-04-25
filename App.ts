@@ -1,10 +1,10 @@
 import express, { Request, Response } from "express";
-import { router } from "./Src/Api/Routes/router";
-import { appConnected } from "./Src/Api/Messages/Success/ConnectedToApp";
-import { Consumer } from "./Src/Services/LetterConsumer";
-import { serverConnectionFalied } from "./Src/Api/Messages/Exceptions/EAPI/ServerConnectionFalied";
-import { ERequestStatus } from "./Src/Api/Enums/Enum";
-import { invalidRoute } from "./Src/Api/Messages/Exceptions/EUS/InvalidRoute";
+import { router } from "./Src/api/Routes/router";
+import { appConnected } from "./Src/api/messages/Success/ConnectedToApp";
+import { Consumer } from "./Src/services/messageBroker/LetterConsumer";
+import { serverConnectionFalied } from "./Src/api/messages/Exceptions/EAPI/ServerConnectionFalied";
+import { ERequestStatus } from "./Src/api/enums/Enum";
+import { invalidRoute } from "./Src/api/messages/Exceptions/EUS/InvalidRoute";
 
 const port = 3000;
 const app = express();

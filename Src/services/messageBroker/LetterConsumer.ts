@@ -1,10 +1,10 @@
 import amqp, { Connection } from 'amqplib/callback_api';
 import { Channel } from 'amqplib';
 import * as dotenv from 'dotenv';
-import { connectionNotAvailable } from '../Api/Messages/Exceptions/EAPI/ConnectionNotAvailable';
-import { rabbitConnected } from '../Api/Messages/Success/ConnectedToRabbit';
+import { connectionNotAvailable } from '../../api/messages/Exceptions/EAPI/ConnectionNotAvailable';
+import { rabbitConnected } from '../../api/messages/Success/ConnectedToRabbit';
 
-export class Consumer {
+export class LetterConsumer {
     async printLetter(): Promise<void> {
         try {
             dotenv.config();

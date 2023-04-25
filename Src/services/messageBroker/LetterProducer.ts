@@ -1,9 +1,9 @@
 import amqp, { Connection } from 'amqplib/callback_api';
 import { Channel } from 'amqplib';
-import { connectionNotAvailable } from '../Api/Messages/Exceptions/EAPI/ConnectionNotAvailable';
+import { connectionNotAvailable } from '../../api/messages/Exceptions/EAPI/ConnectionNotAvailable';
 import * as dotenv from 'dotenv';
 
-export class Producer {
+export class LetterProducer {
     async sendMessageToQueue(message: any): Promise<void> {
         try {
             dotenv.config();
