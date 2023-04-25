@@ -5,7 +5,7 @@ import { connectionNotAvailable } from '../../api/messages/Exceptions/EAPI/Conne
 import { rabbitConnected } from '../../api/messages/Success/ConnectedToRabbit';
 
 export class LetterConsumer {
-    async printLetter(): Promise<void> {
+    public async consumeLetter(): Promise<void> {
         try {
             dotenv.config();
             const url: string | undefined = process.env.RABBIT_URL;

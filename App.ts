@@ -1,10 +1,10 @@
 import express, { Request, Response } from "express";
-import { router } from "./Src/api/Routes/router";
-import { appConnected } from "./Src/api/messages/Success/ConnectedToApp";
-import { Consumer } from "./Src/services/messageBroker/LetterConsumer";
-import { serverConnectionFalied } from "./Src/api/messages/Exceptions/EAPI/ServerConnectionFalied";
-import { ERequestStatus } from "./Src/api/enums/Enum";
-import { invalidRoute } from "./Src/api/messages/Exceptions/EUS/InvalidRoute";
+import { router } from "./src/api/routes/router";
+import { appConnected } from "./src/api/messages/Success/ConnectedToApp";
+import { LetterConsumer } from "./src/services/messageBroker/LetterConsumer";
+import { serverConnectionFalied } from "./src/api/messages/Exceptions/EAPI/ServerConnectionFalied";
+import { ERequestStatus } from "./src/api/enums/Enum";
+import { invalidRoute } from "./src/api/messages/Exceptions/EUS/InvalidRoute";
 
 const port = 3000;
 const app = express();
@@ -22,8 +22,8 @@ const startServer = async () => {
         app.listen(port, () => {
             console.log(appConnected());
         });
-        const consumerRabbit: Consumer = new Consumer();
-        await consumerRabbit.printLetter();
+        const consumerRabbit: LetterConsumer = new LetterConsumer();
+        await consumerRabbit.consumeLetter();
     } catch (error) {
         console.error(serverConnectionFalied(), error);
     }
