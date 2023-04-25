@@ -1,10 +1,10 @@
+import { serverConnectionFalied } from "./src/api/messages/exceptions/EAPI/ServerConnectionFalied";
+import { LetterConsumer } from "./src/services/messageBroker/LetterConsumer";
+import { invalidRoute } from "./src/api/messages/exceptions/EUS/InvalidRoute";
+import { appConnected } from "./src/api/messages/success/ConnectedToApp";
+import { ERequestStatus } from "./src/api/enums/Enum";
 import express, { Request, Response } from "express";
 import { router } from "./src/api/routes/router";
-import { appConnected } from "./src/api/messages/Success/ConnectedToApp";
-import { LetterConsumer } from "./src/services/messageBroker/LetterConsumer";
-import { serverConnectionFalied } from "./src/api/messages/Exceptions/EAPI/ServerConnectionFalied";
-import { ERequestStatus } from "./src/api/enums/Enum";
-import { invalidRoute } from "./src/api/messages/Exceptions/EUS/InvalidRoute";
 
 const port = 3000;
 const app = express();

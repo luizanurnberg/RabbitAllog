@@ -1,8 +1,8 @@
+import { connectionNotAvailable } from '../../api/messages/exceptions/EAPI/ConnectionNotAvailable';
+import { rabbitConnected } from '../../api/messages/success/ConnectedToRabbit';
 import amqp, { Connection } from 'amqplib/callback_api';
 import { Channel } from 'amqplib';
 import * as dotenv from 'dotenv';
-import { connectionNotAvailable } from '../../api/messages/Exceptions/EAPI/ConnectionNotAvailable';
-import { rabbitConnected } from '../../api/messages/Success/ConnectedToRabbit';
 
 export class LetterConsumer {
     public async consumeLetter(): Promise<void> {

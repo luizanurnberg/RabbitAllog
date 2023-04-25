@@ -1,7 +1,7 @@
+import { connectionNotAvailable } from '../../api/messages/exceptions/EAPI/ConnectionNotAvailable';
 import amqp, { Connection } from 'amqplib/callback_api';
 import { Channel } from 'amqplib';
 import { Request } from 'express';
-import { connectionNotAvailable } from '../../api/messages/Exceptions/EAPI/ConnectionNotAvailable';
 import * as dotenv from 'dotenv';
 
 export class LetterProducer {
