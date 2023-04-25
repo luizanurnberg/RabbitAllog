@@ -5,7 +5,7 @@ import { Request } from 'express';
 import * as dotenv from 'dotenv';
 
 export class LetterProducer {
-    async sendMessageToQueue(message: Request): Promise<void> {
+    public async sendMessageToQueue(message: Request): Promise<void> {
         try {
             dotenv.config();
             const url: string | undefined = process.env.RABBIT_URL;
