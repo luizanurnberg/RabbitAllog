@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { Api } from '../Index';
+import { Index } from '../Index';
 
 const router: Router = Router();
-router.post('/sendletter', new Api().manageRabbitService);
+router.post('/sendletter', new Index().processApiData);
 
 export {
     router

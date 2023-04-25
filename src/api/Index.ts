@@ -6,8 +6,8 @@ import { LetterService } from '../services/LetterService';
 import { Request, Response } from 'express';
 import { ERequestStatus } from './enums/Enum';
 
-export class Api {
-    async manageRabbitService(request: Request, response: Response): Promise<Response<any, Record<string, any>> | undefined> {
+export class Index {
+    async processApiData(request: Request, response: Response): Promise<Response<any, Record<string, any>> | undefined> {
         try {
             const letter: any = request.body;
             if (!letter.FROM || !letter.TO) {
