@@ -17,6 +17,7 @@ export class LetterConsumer {
                 console.log(rabbitConnected());
                 connection.createChannel(function (err: Error, ch: any) {
                     const channel: Channel = ch;
+                    channel.assertQueue(`${queue}`);
                     channel.consume(`${queue}`, (letter: any) => {
                         if (letter) {
                             const message: string = letter.content.toString();

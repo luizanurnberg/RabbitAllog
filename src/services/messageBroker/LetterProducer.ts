@@ -16,6 +16,7 @@ export class LetterProducer {
                 }
                 connection.createChannel(async function (err: any, ch: any) {
                     let channel: Channel = ch;
+                    channel.assertQueue(`${queue}`);
                     await channel.sendToQueue(`${queue}`, Buffer.from(JSON.stringify(message)));
                     channel.close();
                 });
