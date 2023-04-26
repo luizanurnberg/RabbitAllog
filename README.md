@@ -46,9 +46,10 @@ terminal do Projeto.
    - Consumer: deve consumir e imprimir as cartas eletrônicas no terminal em que está sendo executado. <br>
 2. LetterService
    - Faz a ligação entre o Producer e a Api
-   
+
 <b>App:</b> <br>
-   - Inicializa o servidor para consumir as cartas eletrônicas.
+
+- Inicializa o servidor para consumir as cartas eletrônicas.
 
 # Detalhamento do sistema
 
@@ -60,6 +61,7 @@ Pré-condições:
 2. Possuir internet.
 
 Fluxo básico:
+
 1. O usuário acessa o Insomnia ou Postman para testes;
 2. O usuário acessa a rota definida para o envio;
 3. O usuário digita o remetente, destinatário e a mensagem;
@@ -69,16 +71,19 @@ Fluxo básico:
 
 Fluxo de exceção:
 (E1) Exceção ao passo 3 - Campos vazios;
+
 1. O usuário não digita todos os campos necessários para o envio;
 2. O sistema retorna a mensagem EXC004.
 
 Fluxo de exceção:
 (E2) Exceção ao passo 3 - Mensagem inválida
+
 1. O usuário não digita uma mensagem para ser enviada ao destinatário;
 2. O sistema retorna a mensagem EXC006.
 
 Fluxo de exceção:
 (E3) Exceção ao passo 2 - Rota inválida;
+
 1. O usuário não acessa uma rota válida para o envio da mensagem;
 2. O sistema retorna a mensagem EXC005.
 
@@ -93,23 +98,26 @@ Pré-condições:
 3. Ter enviado ao menos uma carta eletrônica.
 
 Fluxo básico:
+
 1. O usuário aguarda a mensagem aparecer no terminal do projeto, após ser processada pelo rabbit.
 
 # Configuração de ambiente
 
-1. Possuir o Docker instalado;
-2. Possuir o Insomnia ou PostMan instalado;
-3. Para rodar o programa utilizar os comandos abaixo e depois esperar as mensagens SUC001 e SUC002;
+1.  Possuir o Docker instalado;
+2.  Possuir o Insomnia ou PostMan instalado;
+3.  Para rodar o programa utilizar os comandos abaixo e depois esperar as mensagens SUC001 e SUC002;
 
             npm install
 
             docker pull rabbitmq:3-management
 
-            docker run --rm -it -p 15672:15672 -p 5672:5672 rabbitmq:3-management 
-            
+            docker run --rm -it -p 15672:15672 -p 5672:5672 rabbitmq:3-management
+
+            npm run start
+
             (A partir desse comando é criada uma conexão do tipo guest:guest)
 
-4. Adicionar um arquivo .env se necessário, com as informações abaixo.
+4.  Adicionar um arquivo .env, com as informações abaixo.
 
             RABBIT_URL = 'amqp://localhost'
 
