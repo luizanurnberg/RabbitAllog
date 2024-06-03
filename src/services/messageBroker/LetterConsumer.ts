@@ -8,8 +8,8 @@ export class LetterConsumer {
     public async consumeLetter(): Promise<void> {
         try {
             dotenv.config();
-            const url: string | undefined = process.env.RABBIT_URL;
-            const queue: string | undefined = process.env.QUEUE_NAME;
+            const url: string | undefined = 'amqp://localhost';
+            const queue: string | undefined = 'letters';
             amqp.connect(`${url}`, function (err: Error, connection: Connection) {
                 if (!connection) {
                     throw (connectionNotAvailable());
