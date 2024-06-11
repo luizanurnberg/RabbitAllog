@@ -19,7 +19,7 @@ app.use(function (request: Request, response: Response) {
     );
 })
 
-const startServer: () => Promise<void> = async () => {
+const start: () => Promise<void> = async () => {
     try {
         app.listen(port, host, () => {
             console.log(appConnected());
@@ -31,4 +31,4 @@ const startServer: () => Promise<void> = async () => {
     }
 };
 
-startServer();
+start();
