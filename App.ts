@@ -7,6 +7,8 @@ import express, { Request, Response } from "express";
 import { router } from "./src/api/routes/router";
 
 const port = 3000;
+const host = '0.0.0.0';
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,7 +21,7 @@ app.use(function (request: Request, response: Response) {
 
 const startServer: () => Promise<void> = async () => {
     try {
-        app.listen(port, () => {
+        app.listen(port, host, () => {
             console.log(appConnected());
         });
         const consumerRabbit: LetterConsumer = new LetterConsumer();
