@@ -2,7 +2,7 @@
 
 Projeto do estágio para envio e leitura de cartas eletrônicas | TypeScript
 
-# Descrição fornecida pelo surpevisor
+# Descrição fornecida pelo Supervisor
 
 Desenvolver um projeto em NodeJS para envio e leitura de cartas eletrônicas. O projeto deve conter uma rota para enviar as cartas eletrônicas para uma fila do Rabbit, e também um SERVIÇO que lê a fila do Rabbit e imprime as cartas enviadas no terminal. Utilizar o Rabbit para fazer a interação entre a parte da API e do SERVIÇO. Detalhes da API: A rota deve receber como parâmetro um objeto, exemplo:'{ FROM: “joão”, TO: “maria", MESSAGE: “Olá Maria” }' e enviar as informações recebidas por rota para uma nova fila no Rabbit. Detalhes do SERVIÇO: Desenvolver um consumidor para essa nova fila do Rabbit e consumir itens da fila do Rabbit e imprimir no console onde está rodando o
 terminal do Projeto.
